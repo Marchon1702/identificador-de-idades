@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-color: rgb(0, 168, 126);
+}
+
+main {
+    display: block;
+    margin: auto;
+    height: 100vh;
+    color: rgb(255, 255, 255);
+}
+
+main > h1 {
+    margin: 10px;
+    text-shadow: 1px 1px 3px black;
+}
+
+section#principal {
+    height: 370px;
+    width: 500px;
+    padding: 20px;
+    margin: 10px;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.801);
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 1px 1px 4px black;
+    color: black;
+}
+
+fieldset {
+    border: none;
+    margin: 20px;
+}
+
+label {
+    padding: 5px;
+}
+
+input#anodenasc {
+    width: 70px;
+}
+
+input#sexmasc, input#sexfem {
+    margin-bottom: 10px;
+    transform: translate(-6px, 2px);
+}
+
+input#enviar {
+    padding: 1px;
+}
+
+#resultado {
+    text-align: center;
+    padding: 10px;
+}
+
+.imagens {
+    display: none;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 550px) {
+    section#principal {
+        width: 350px;
+        height: 400px;
+        margin: 10px;
+    }
+}

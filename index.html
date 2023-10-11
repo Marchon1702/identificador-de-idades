@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificador de  idades</title>
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+    <main>
+        <h1> Identificador de idades</h1>
+        <section id="principal">
+            <fieldset>
+                <label for="idade"><stronger>Ano de nascimento:</stronger> </label>
+                <input type="number" name="anodenasc" id="anodenasc" required>
+            </fieldset>
+            <fieldset>
+                <stronger>Sexo: </stronger>
+                <label for="sexmasc">Masculino: </label>
+                <input type="radio" name="sx" id="sexmasc" onclick="coletarmasc()">
+                <label for="sexfem">Feminino: </label>
+                <input type="radio" name="sx" id="sexfem" required onclick="coletarfem()">
+                <input type="button" value="Enviar" id="enviar" onclick="mostrardados()">
+            </fieldset>
+            <p id="resultado"></p>
+            <p id="teste"></p>
+            <div>
+                <div id="feminino">
+                    <img src="imagens/bebemenina.jpg" alt="bebê menina" id="fbebe" class="imagens">
+                    <img src="imagens/criancamenina.jpg" alt="criança menina" id="fcrianca" class="imagens">
+                    <img src="imagens/meninaadolescente.jpg" alt=" adolescente menina" id="fjovem" class="imagens">
+                    <img src="imagens/jadulta.jpg" alt=" jovem adulta" id="fjovemadulta" class="imagens">
+                    <img src="imagens/mulheradulta.jpg" alt="mulher adulta" id="fadulta" class="imagens">
+                    <img src="imagens/idosa.jpg" alt="idosa" id="fidosa" class="imagens">
+                </div>
+
+                <div id="masculino">
+                    <img src="imagens/bebemenino.jpg" alt=" bebê menino" id="mbebe" class="imagens">
+                    <img src="imagens/criancamenino.jpg" alt=" menino criança" id="mcrianca" class="imagens">
+                    <img src="imagens/adolescentemenino.jpg" alt=" menino adolescente" id="mjovem" class="imagens">
+                    <img src="imagens/jovemadulto.jpg" alt="jovem adulto" id="mjovemadulto" class="imagens">
+                    <img src="imagens/adulto.jpg" alt="homem adulto" id="madulto" class="imagens">
+                    <img src="imagens/idoso.jpg" alt="idoso" id="midoso" class="imagens">
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        var masc = document.querySelector('#sexmasc')
+        var fem = document.querySelector('#sexfem')
+        function coletarmasc() {
+            masc = 1
+            fem = null
+        }
+
+        function coletarfem() {
+            fem = 2
+            masc = null
+        }
+
+        function mostrardados() {
+            var agora = new Date()
+            var anoatual = agora.getFullYear()
+            var ano = anodenasc.value
+            var idade = anoatual - ano
+            var resul = document.querySelector('#resultado')
+        
+            if (ano > anoatual) {
+                window.alert('Ano inválido!')
+                resul.innerHTML = 'Você está muito à frente do seu tempo!'
+            } else  if (ano == anoatual) {
+                resul.innerHTML = 'Foi detectado alguém muito novo para esta pesquisa ☹️'
+            } else if (masc == 1) {
+                resul.innerHTML = `Foi detectado um Homem de ${idade} ano(s).`
+                feminino.style.display = 'none'
+                masculino.style.display = 'block'
+                if (idade <= 2){
+                     mbebe.style.display = 'block'
+                     mcrianca.style.display = 'none'
+                     mjovem.style.display = 'none'
+                     mjovemadulto.style.display = 'none'
+                     madulto.style.display = 'none' 
+                     midoso.style.display = 'none'
+
+                    } else if (idade > 2 && idade <= 12) {
+                        mbebe.style.display = 'none'
+                        mcrianca.style.display = 'block'
+                        mjovem.style.display = 'none'
+                        mjovemadulto.style.display = 'none'
+                        madulto.style.display = 'none' 
+                        midoso.style.display = 'none'
+
+                        } else if (idade > 12 && idade < 18){
+                            mbebe.style.display = 'none'
+                            mcrianca.style.display = 'none'
+                            mjovem.style.display = 'block'
+                            mjovemadulto.style.display = 'none'
+                            madulto.style.display = 'none' 
+                            midoso.style.display = 'none'
+
+                            } else if (idade >= 18 && idade < 30) {
+                                mbebe.style.display = 'none'
+                                mcrianca.style.display = 'none'
+                                mjovem.style.display = 'none'
+                                mjovemadulto.style.display = 'block'
+                                madulto.style.display = 'none' 
+                                midoso.style.display = 'none'
+
+                                }else if ( idade >= 30 && idade < 60) {
+                                    mbebe.style.display = 'none'
+                                    mcrianca.style.display = 'none'
+                                    mjovem.style.display = 'none'
+                                    mjovemadulto.style.display = 'none'
+                                    madulto.style.display = 'block' 
+                                    midoso.style.display = 'none'
+                                    }else if (idade > 60) {
+                                        mbebe.style.display = 'none'
+                                        mcrianca.style.display = 'none'
+                                        mjovem.style.display = 'none'
+                                        mjovemadulto.style.display = 'none'
+                                        madulto.style.display = 'none' 
+                                        midoso.style.display = 'block'
+                                    }
+
+                    
+            }
+            
+            if (fem == 2) {
+                resul.innerHTML = `Foi detectado uma Mulher de ${idade} ano(s)`
+                masculino.style.display = 'none'
+                feminino.style.display = 'block'
+                if (idade <= 2){
+                     fbebe.style.display = 'block'
+                     fcrianca.style.display = 'none'
+                     fjovem.style.display = 'none'
+                     fjovemadulta.style.display = 'none'
+                     fadulta.style.display = 'none' 
+                     fidosa.style.display = 'none'
+
+                    } else if (idade > 2 && idade <= 12) {
+                        fbebe.style.display = 'none'
+                        fcrianca.style.display = 'block'
+                        fjovem.style.display = 'none'
+                        fjovemadulta.style.display = 'none'
+                        fadulta.style.display = 'none' 
+                        fidosa.style.display = 'none'
+
+                        } else if (idade > 12 && idade < 18){
+                            fbebe.style.display = 'none'
+                            fcrianca.style.display = 'none'
+                            fjovem.style.display = 'block'
+                            fjovemadulta.style.display = 'none'
+                            fadulta.style.display = 'none' 
+                            fidosa.style.display = 'none'
+
+                            } else if (idade >= 18 && idade < 30) {
+                                fbebe.style.display = 'none'
+                                fcrianca.style.display = 'none'
+                                fjovem.style.display = 'none'
+                                fjovemadulta.style.display = 'block'
+                                fadulta.style.display = 'none' 
+                                fidosa.style.display = 'none'
+
+                                }else if ( idade >= 30 && idade < 60) {
+                                    fbebe.style.display = 'none'
+                                    fcrianca.style.display = 'none'
+                                    fjovem.style.display = 'none'
+                                    fjovemadulta.style.display = 'none'
+                                    fadulta.style.display = 'block' 
+                                    fidosa.style.display = 'none'
+                                    }else if (idade > 60) {
+                                        fbebe.style.display = 'none'
+                                        fcrianca.style.display = 'none'
+                                        fjovem.style.display = 'none'
+                                        fjovemadulta.style.display = 'none'
+                                        fadulta.style.display = 'none' 
+                                        fidosa.style.display = 'block'
+                                    }
+
+            } 
+        
+        }
+    </script>
+</body>
+</html>
